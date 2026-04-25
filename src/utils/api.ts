@@ -23,8 +23,8 @@ export async function getJobs({ searchInput, category }: getJobsParams) {
     const searchURL = jobUrlSetter({ searchInput, category });
     const response = await fetch(searchURL);
     const data = await response.json();
-    const jobsList = data.jobs;
-    return jobsList;
+    const jobList = data.jobs;
+    return jobList;
   } catch (error) {
     throw error;
   }
