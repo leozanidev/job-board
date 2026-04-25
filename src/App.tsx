@@ -1,15 +1,16 @@
-import "./App.css";
+// Importando meu custom hook
+import { useJobList } from "./hook/useJobs";
+
+// Importando componentes
+import Header from "./components/Header";
 
 function App() {
+  const { jobList, isLoading, hasError, setCategory, setSearchInput } =
+    useJobList();
   return (
     <>
       <div className="mainAppContainer">
-        <header>
-          <h1>Job Board</h1>
-          <div className="searchContainer">
-            <input type="text" />
-          </div>
-        </header>
+        <Header setSearchInput={setSearchInput} setCategory={setCategory} />
       </div>
     </>
   );

@@ -13,7 +13,8 @@ export interface Job {
   description: string;
 }
 
-export interface ApiResponse {
-  "job-count": number;
-  jobs: Job[];
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
 }

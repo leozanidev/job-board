@@ -1,5 +1,6 @@
 // Endpoint a ser acessado ( ENDPOINT: Locais específicos da API )
 const url = "https://remotive.com/api/remote-jobs";
+
 interface getJobsParams {
   searchInput?: string;
   category?: string;
@@ -16,6 +17,18 @@ function jobUrlSetter({ searchInput, category }: getJobsParams) {
   }
 
   return url + "?" + urlParams;
+}
+
+export async function getCategories() {
+  try {
+    const categoriesURL = url + "/categories";
+    const response = await fetch(categoriesURL);
+    const categoryData = await response.json();
+    const categoryList = categoryData.jobs;
+    return categoryList;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function getJobs({ searchInput, category }: getJobsParams) {
