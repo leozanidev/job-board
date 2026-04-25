@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 // Importando função que busca a lista de trabalhos
 import { getJobs } from "../utils/api";
+// Importando tipagem da lista de trabalhos
+import type { Job } from "../types";
 
 export function useJobList() {
   // States do hook
-  const [jobList, setJobList] = useState([]);
+  const [jobList, setJobList] = useState<Job[]>([]);
   const [searchInput, setSearchInput] = useState("");
   const [category, setCategory] = useState("");
   const [isLoading, setIsLoading] = useState(false);
