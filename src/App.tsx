@@ -5,12 +5,22 @@ import { useJobList } from "./hook/useJobs";
 import Header from "./components/Header";
 
 function App() {
-  const { jobList, isLoading, hasError, setCategory, setSearchInput } =
-    useJobList();
+  const {
+    jobList,
+    isLoading,
+    hasError,
+    categoryList,
+    setCategory,
+    setSearchInput,
+  } = useJobList();
   return (
     <>
       <div className="mainAppContainer">
-        <Header setSearchInput={setSearchInput} setCategory={setCategory} />
+        <Header
+          setSearchInput={setSearchInput}
+          setCategory={setCategory}
+          categoryList={categoryList}
+        />
       </div>
     </>
   );
