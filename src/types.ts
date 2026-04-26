@@ -1,20 +1,15 @@
 export interface Job {
-  id: number;
-  url: string;
-  title: string;
-  company_name: string;
-  company_logo: string;
-  category: string;
-  tags: string[];
-  job_type: string;
-  publication_data: string;
-  candidate_required_location: string;
-  salary: string;
-  description: string;
-}
-
-export interface Category {
-  id: number;
-  name: string;
-  slug: string;
+  job_id: string;
+  job_title: string;
+  employer_name: string;
+  employer_logo: string | null;
+  job_city: string;
+  job_country: string;
+  job_is_remote: boolean;
+  job_description: string;
+  job_posted_at_datetime_utc: string;
+  job_min_salary: number | null;
+  job_max_salary: number | null;
+  job_salary: number | null;
+  job_apply_link: string;
 }

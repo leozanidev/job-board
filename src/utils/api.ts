@@ -1,42 +1,35 @@
 // Endpoint a ser acessado ( ENDPOINT: Locais específicos da API )
-const url = "https://remotive.com/api/remote-jobs";
+const url = "https://jsearch.p.rapidapi.com/search";
 
 interface getJobsParams {
   searchInput?: string;
-  category?: string;
 }
 
-function jobUrlSetter({ searchInput, category }: getJobsParams) {
+function jobUrlSetter({ searchInput }: getJobsParams) {
   const urlParams = new URLSearchParams();
 
   if (searchInput) {
-    urlParams.append("search", searchInput);
-  }
-  if (category) {
-    urlParams.append("category", category);
+    urlParams.append("query", searchInput);
+  } else {
+    urlParams.append("query", "developer");
   }
 
   return url + "?" + urlParams;
 }
 
-export async function getCategories() {
+export async function getJobs({ searchInput }: getJobsParams) {
   try {
-    const categoriesURL = url + "/categories";
-    const response = await fetch(categoriesURL);
-    const categoryData = await response.json();
-    const categoryList = categoryData.jobs;
-    return categoryList;
-  } catch (error) {
-    throw error;
-  }
-}
-
-export async function getJobs({ searchInput, category }: getJobsParams) {
-  try {
-    const searchURL = jobUrlSetter({ searchInput, category });
-    const response = await fetch(searchURL);
+    const searchURL = jobUrlSetter({ searchInput });
+    const response = await fetch(searchURL, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
+        "x-rapidapi-host": "jsearch.p.rapidapi.com",
+        "Content-Type": "application/json",
+      },
+    });
     const data = await response.json();
-    const jobList = data.jobs;
+    const jobList = data.data;
     return jobList;
   } catch (error) {
     throw error;

@@ -5,22 +5,19 @@ import { useJobList } from "./hook/useJobs";
 import Header from "./components/Header";
 
 function App() {
-  const {
-    jobList,
-    isLoading,
-    hasError,
-    categoryList,
-    setCategory,
-    setSearchInput,
-  } = useJobList();
+  const { jobList, searchInput, isLoading, hasError, setSearchInput } =
+    useJobList();
   return (
     <>
       <div className="mainAppContainer">
-        <Header
-          setSearchInput={setSearchInput}
-          setCategory={setCategory}
-          categoryList={categoryList}
-        />
+        <Header setSearchInput={setSearchInput} />
+        <div className="font-sans flex items-center justify-center p-3 text-xl">
+          <span>
+            {searchInput !== ""
+              ? `${jobList.length} resultado para ${searchInput}.`
+              : `${jobList.length} resultados para developer.`}
+          </span>
+        </div>
       </div>
     </>
   );
