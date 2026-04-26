@@ -4,7 +4,7 @@ interface props {
 
 const Header = ({ setSearchInput }: props) => {
   return (
-    <header>
+    <header className="w-1/1">
       <div className="bg-sky-700 flex flex-col items-center justify-center w-1/1 p-10 gap-10">
         <h1 className="text-7xl text-gray-300 font-serif">Job Board</h1>
         <div className="searchSection flex justify-center items-center gap-5 bg-sky-700 font-sans">
