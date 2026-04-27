@@ -18,7 +18,7 @@ const JobList = ({ jobList }: JobListType) => {
   if (hasError) return <p>Tivemos um erro ao acessar a lista de vagas.</p>;
   if (isLoading) return <p>Aguarde, estamos trazendo a.</p>;
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center mb-5">
       {jobList.map((job: Job) => (
         <JobCard key={job.job_id} job={job} />
       ))}
