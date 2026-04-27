@@ -1,11 +1,18 @@
 import { useContext } from "react";
 import { JobContext } from "../context/JobContext";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const JobDetails = () => {
-  const { jobList } = useContext(JobContext);
+  const { jobList, hasError, isLoading } = useContext(JobContext);
   const { id } = useParams();
   const job = jobList.find((job) => job.job_id === id);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (hasError) return <p>Tivemos um erro ao acessar os detalhes da vaga.</p>;
+  if (isLoading) return <p>Estamos acessando os detalhes da vaga.</p>;
 
   return (
     <div className="flex text-sans items-center justify-center mt-10 text-gray-500">

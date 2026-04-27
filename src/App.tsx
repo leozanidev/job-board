@@ -15,7 +15,7 @@ function App() {
     useJobList();
   return (
     <>
-      <div className="flex flex-col w-1/1 items-center justify-center">
+      <div className="flex flex-col min-h-screen w-1/1 items-center justify-center">
         <Header
           setSearchInput={setSearchInput}
           jobCount={jobList.length}
