@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import JobList from "./components/JobList";
 import JobDetails from "./components/JobDetails";
+import Footer from "./components/Footer";
 
 function App() {
   const { jobList, searchInput, isLoading, hasError, setSearchInput } =
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<JobList jobList={jobList} />} />
           <Route path="/job/:id" element={<JobDetails />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );
