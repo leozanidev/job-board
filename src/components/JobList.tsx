@@ -16,7 +16,7 @@ interface JobListType {
 const JobList = ({ jobList }: JobListType) => {
   const { isLoading, hasError } = useContext(JobContext);
   if (hasError) return <p>Tivemos um erro ao acessar a lista de vagas.</p>;
-  if (isLoading) return <p>Aguarde, estamos trazendo a.</p>;
+  if (isLoading) return <p>Aguarde, estamos trazendo as vagas.</p>;
   return (
     <main className="flex flex-col items-center mb-5">
       {jobList.map((job: Job) => (
