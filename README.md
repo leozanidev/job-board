@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+# 💼 Job Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para busca de vagas de emprego, desenvolvida com React, TypeScript e Tailwind CSS, integrada à API [JSearch (RapidAPI)](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Screenshots
 
-## React Compiler
+### Página Principal
+![Página Principal](./screenshots/home.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Lista de Vagas
+![Lista de Vagas](./screenshots/lista.png)
 
-## Expanding the ESLint configuration
+### Detalhes da Vaga
+![Detalhes da Vaga](./screenshots/detalhes.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- [React](https://react.dev/) — biblioteca para construção de interfaces
+- [TypeScript](https://www.typescriptlang.org/) — tipagem estática para JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) — estilização utilitária
+- [React Router DOM](https://reactrouter.com/) — roteamento client-side
+- [Vite](https://vitejs.dev/) — bundler e servidor de desenvolvimento
+- [JSearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) — fonte de dados de vagas em tempo real
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Funcionalidades
+
+- Listagem de vagas de emprego em tempo real
+- Busca por termo com debounce
+- Página de detalhes de cada vaga com descrição completa
+- Link direto para candidatura
+- Tratamento de estados de loading e erro
+- Layout responsivo
+
+---
+
+## ⚙️ Como Rodar Localmente
+
+### Pré-requisitos
+
+- Node.js instalado
+- Conta na [RapidAPI](https://rapidapi.com) com acesso à API JSearch
+
+### Passo a Passo
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/job-board.git
+cd job-board
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Instale as dependências:
+```bash
+npm install
 ```
+
+3. Crie um arquivo `.env` na raiz do projeto:
+```env
+VITE_RAPIDAPI_KEY=sua_chave_aqui
+```
+
+4. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+5. Acesse `http://localhost:5173` no navegador.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/
+│   ├── Header.tsx
+│   ├── JobCard.tsx
+│   ├── JobDetails.tsx
+│   ├── JobList.tsx
+│   └── Footer.tsx
+├── context/
+│   └── JobContext.tsx
+├── hook/
+│   └── useJobs.ts
+├── utils/
+│   └── api.ts
+├── types.ts
+└── App.tsx
+```
+
+---
+
+## 👨‍💻 Autor
+
+Leonardo Zani de Souza — 2026
