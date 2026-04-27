@@ -11,8 +11,7 @@ import JobDetails from "./components/JobDetails";
 import Footer from "./components/Footer";
 
 function App() {
-  const { jobList, searchInput, isLoading, hasError, setSearchInput } =
-    useJobList();
+  const { jobList, searchInput, setSearchInput } = useJobList();
   return (
     <>
       <div className="flex flex-col min-h-screen w-1/1 items-center justify-center">
